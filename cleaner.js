@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const R = require('ramda')
 
-const { DrkBx } = require('./DarkBoxx')
+const { DrkBx } = require('./DarkBox')
 
 const cleaner = R.pipe(
     DrkBx.cls.ansis,
@@ -20,7 +20,7 @@ const editForClean = R.curry( (coding, file) => {
     fs.writeFileSync(
         'Data\\' + path.basename(file),
         cleaner(
-            DrkBx.files.recode(coding)(file)
+            DrkBx.files.recode(coding, file)
         ),
         coding
     )
